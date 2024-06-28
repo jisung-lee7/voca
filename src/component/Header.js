@@ -7,12 +7,12 @@ export default function Header() {
         <Link to="/">TOEIC vocabulary</Link>
       </h1>
       <div className="menu">
-        <a href="#x" className="link">
+        <Link to="/create_word" className="link">
           add voca
-        </a>
-        <a href="#x" className="link">
+        </Link>
+        <Link to="/create_day" className="link">
           add day
-        </a>
+        </Link>
       </div>
     </div>
   );
