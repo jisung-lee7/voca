@@ -1,9 +1,13 @@
 import { Link } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 
+export interface IDay {
+  id: number;
+  day: number;
+}
+
 export default function DayList() {
-  const days = useFetch(`http://localhost:3001/days`);
-  console.log(`c.log ## days.length ##`, days.length);
+  const days: IDay[] = useFetch(`http://localhost:3001/days`);
 
   if (days.length === 0) {
     return <span>Loading...</span>;

@@ -1,41 +1,46 @@
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
+import { IDay } from "src/component/DayList";
 
 export default function CreateWord() {
   const [isLoading, setIsLoading] = useState(false);
-  const days = useFetch(`http://localhost:3001/days`);
+  const days: IDay[] = useFetch(`http://localhost:3001/days`);
   const history = useNavigate();
 
-  function onSubmit(e) {
+  function onSubmit(e: React.FormEvent) {
     e.preventDefault();
 
-    if (!isLoading) {
+    if (!isLoading && dayRef.current && engRef.current && korRef.current) {
       setIsLoading(true);
+      const day = dayRef.current.value;
+      const eng = engRef.current.value;
+      const kor = korRef.current.value;
+
       fetch(`http://localhost:3001/words/`, {
         method: "POST",
         headers: {
           "Content-type": "application/json",
         },
         body: JSON.stringify({
-          day: dayRef.current.value,
-          eng: engRef.current.value,
-          kor: korRef.current.value,
+          day: day,
+          eng: eng,
+          kor: kor,
           isDone: false,
         }),
       }).then((res) => {
         if (res.ok) {
           alert("Create is complete");
-          history(`/day/${dayRef.current.value}`);
+          history(`/day/${day}`);
           setIsLoading(false);
         }
       });
     }
   }
 
-  const engRef = useRef(null);
-  const korRef = useRef(null);
-  const dayRef = useRef(null);
+  const engRef = useRef<HTMLInputElement>(null);
+  const korRef = useRef<HTMLInputElement>(null);
+  const dayRef = useRef<HTMLSelectElement>(null);
 
   return (
     <form onSubmit={onSubmit}>

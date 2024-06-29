@@ -1,0 +1,104 @@
+{
+  "compilerOptions": {
+    /* Base Options: */
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "target": "es2022",
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "moduleDetection": "force",
+    "isolatedModules": true,
+    /* Strictness */
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "checkJs": true,
+    /* Bundled projects */
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "ES2023"
+    ],
+    "noEmit": true,
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "jsx": "preserve",
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "incremental": true,
+    /* Path Aliases */
+    "baseUrl": ".",
+    "paths": {
+      "@/styles/root/*": [
+        "./src/styles/*"
+      ],
+      "@/dictionaries/root/*": [
+        "./src/dictionaries/*"
+      ],
+      "@/server/root/*": [
+        "./src/server/*"
+      ],
+      "@/elements/root/*": [
+        "./src/elements/*"
+      ],
+      "@/components/root/*": [
+        "./src/components/*"
+      ],
+      "@/contexts/root/*": [
+        "./src/contexts/*"
+      ],
+      "@/services/root/*": [
+        "./src/services/*"
+      ],
+      "@/hooks/root/*": [
+        "./src/hooks/*"
+      ],
+      "@/queries/root/*": [
+        "./src/queries/*"
+      ],
+      "@/utils/root/*": [
+        "./src/utils/*"
+      ],
+      "@/types/root/*": [
+        "./src/types/*"
+      ],
+      "@/styles/github/root/*": [
+        "./src/modules/github/styles/*"
+      ],
+      "@/components/github/root/*": [
+        "./src/modules/github/components/*"
+      ],
+      "@/contexts/github/root/*": [
+        "./src/modules/github/contexts/*"
+      ],
+      "@/hooks/github/root/*": [
+        "./src/modules/github/hooks/*"
+      ],
+      "@/queries/github/root/*": [
+        "./src/modules/github/queries/*"
+      ],
+      "@/types/github/root/*": [
+        "./src/modules/github/types/*"
+      ],
+      "@/utils/github/root/*": [
+        "./src/modules/github/utils/*"
+      ]
+    }
+  },
+  "include": [
+    ".eslintrc.cjs",
+    "next-env.d.ts",
+    "./src/types/**.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.cjs",
+    "**/*.js",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "coverage"
+  ]
+}
